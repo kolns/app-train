@@ -1,4 +1,4 @@
-# Flask Application with Application Factory Pattern
+# m3u Manager for Channels DVR
 
 A modern Flask web application built using the application factory pattern, featuring user authentication, database integration, and a responsive Bootstrap UI.
 
@@ -32,7 +32,6 @@ app/
 └── templates/           # Jinja2 templates
     ├── base.html
     ├── index.html
-    ├── dashboard.html
     └── auth/
         ├── login.html
         └── register.html
@@ -109,8 +108,6 @@ export FLASK_CONFIG=production
 
 ### Main Blueprint (`app/main/`)
 - Home page (`/`)
-- Dashboard (`/dashboard`) - requires authentication
-- About page (`/about`)
 
 ### Auth Blueprint (`app/auth/`)
 - Login (`/auth/login`)

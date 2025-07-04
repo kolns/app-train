@@ -78,11 +78,3 @@ class TestAuthRoutes:
         # Should stay on registration page with error
         assert response.status_code == 200
         # Form should show validation error
-    
-    @pytest.mark.integration
-    def test_login_required_access(self, client):
-        """Test that protected routes require login."""
-        response = client.get('/dashboard')
-        # Should redirect to login page
-        assert response.status_code == 302
-        assert '/auth/login' in response.location or 'login' in response.location

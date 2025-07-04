@@ -9,16 +9,3 @@ from app.main import bp
 def index():
     """Home page."""
     return render_template('index.html', title='Home')
-
-
-@bp.route('/dashboard')
-@login_required
-def dashboard():
-    """User dashboard (requires login)."""
-    return render_template('dashboard.html', title='Dashboard')
-
-
-@bp.route('/about')
-def about():
-    """About page."""
-    return render_template('about.html', title='About')
