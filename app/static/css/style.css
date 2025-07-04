@@ -1,0 +1,586 @@
+/* Material Dark Theme for Flask Application */
+
+:root {
+    --primary-color: #bb86fc;
+    --primary-variant: #3700b3;
+    --secondary-color: #03dac6;
+    --secondary-variant: #018786;
+    --background: #121212;
+    --surface: #1e1e1e;
+    --surface-variant: #2d2d2d;
+    --error: #cf6679;
+    --on-primary: #000000;
+    --on-secondary: #000000;
+    --on-background: #ffffff;
+    --on-surface: #ffffff;
+    --on-error: #000000;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --info: #2196f3;
+    --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    --elevation-4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    --elevation-5: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Prevent layout shift */
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--on-background);
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Prevent text selection causing layout shifts */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: text;
+    /* Improve font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Allow text selection in content areas */
+.card-body, 
+.form-control, 
+p, 
+h1, h2, h3, h4, h5, h6 {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* Material Design Elevation */
+.elevation-1 { box-shadow: var(--elevation-1); }
+.elevation-2 { box-shadow: var(--elevation-2); }
+.elevation-3 { box-shadow: var(--elevation-3); }
+.elevation-4 { box-shadow: var(--elevation-4); }
+.elevation-5 { box-shadow: var(--elevation-5); }
+
+/* Navigation */
+.navbar {
+    background-color: var(--surface) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: var(--elevation-2);
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: var(--on-surface) !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    border-radius: 8px;
+    margin: 0 4px;
+    padding: 8px 16px !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+    background-color: rgba(187, 134, 252, 0.08);
+}
+
+.navbar-text {
+    color: var(--on-surface) !important;
+    font-weight: 500;
+}
+
+.navbar-toggler {
+    border: none;
+    color: var(--on-surface);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-variant));
+    color: var(--on-primary);
+    padding: 4rem 0;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--elevation-3);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Cards */
+.card {
+    background-color: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    box-shadow: var(--elevation-1);
+    transition: box-shadow 0.2s ease !important;
+    color: var(--on-surface);
+    opacity: 1;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    box-shadow: var(--elevation-2);
+}
+
+.card-header {
+    background-color: var(--surface-variant);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1.25rem;
+    font-weight: 600;
+    color: var(--on-surface);
+}
+
+.card-body {
+    padding: 1.25rem;
+    transition: none !important;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 24px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    box-shadow: var(--elevation-1);
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+    box-shadow: var(--elevation-2);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--on-primary);
+}
+
+.btn-primary:hover {
+    background-color: #a370f7;
+    color: var(--on-primary);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--on-secondary);
+}
+
+.btn-secondary:hover {
+    background-color: #00c4b4;
+    color: var(--on-secondary);
+}
+
+.btn-outline-secondary {
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background-color: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--on-secondary);
+}
+
+.btn-light {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--on-surface);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-light:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--on-surface);
+}
+
+/* Forms */
+.form-control {
+    background-color: var(--surface-variant);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    color: var(--on-surface);
+    border-radius: 8px;
+    padding: 12px 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    min-height: 48px;
+}
+
+.form-control:focus {
+    background-color: var(--surface-variant);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(187, 134, 252, 0.25);
+    color: var(--on-surface);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-label {
+    color: var(--on-surface);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+    background-color: var(--surface-variant);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-label {
+    color: var(--on-surface);
+}
+
+/* Alerts */
+.alert {
+    border-radius: 8px;
+    border: none;
+    box-shadow: var(--elevation-1);
+    animation: slideInDown 0.3s ease;
+    margin-bottom: 1rem !important;
+    position: relative !important;
+}
+
+.alert-success {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--success);
+    border-left: 4px solid var(--success);
+}
+
+.alert-danger {
+    background-color: rgba(207, 102, 121, 0.1);
+    color: var(--error);
+    border-left: 4px solid var(--error);
+}
+
+.alert-info {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: var(--info);
+    border-left: 4px solid var(--info);
+}
+
+.alert-warning {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: var(--warning);
+    border-left: 4px solid var(--warning);
+}
+
+@keyframes slideInDown {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Footer */
+footer {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: auto;
+    box-shadow: var(--elevation-2);
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list li::before {
+    content: "✓";
+    color: var(--success);
+    font-weight: bold;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Code blocks */
+pre {
+    background-color: var(--surface-variant);
+    color: var(--on-surface);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #a370f7;
+    text-decoration: underline;
+}
+
+/* Container spacing */
+.container {
+    max-width: 1200px;
+}
+
+/* Prevent container shifting */
+.row {
+    margin-right: 0;
+    margin-left: 0;
+    transition: none !important;
+}
+
+.col, [class*="col-"] {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Prevent button jumping */
+.btn {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stabilize form elements */
+.form-control {
+    min-height: 48px;
+}
+
+.input-group-text {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+/* Performance optimizations */
+* {
+    /* Use GPU acceleration for smoother animations */
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Reduce paint operations */
+    will-change: auto;
+}
+
+/* Optimize frequently animated elements */
+.card:hover,
+.btn:hover,
+.nav-link:hover {
+    will-change: box-shadow, background-color;
+}
+
+/* Reset will-change after animation */
+.card,
+.btn,
+.nav-link {
+    will-change: auto;
+}
+
+/* Prevent jumping due to scrollbars */
+html {
+    overflow-y: scroll;
+}
+
+/* Improve text rendering stability */
+body, 
+.card, 
+.btn {
+    text-rendering: optimizeLegibility;
+}
+
+/* Prevent image jumping */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix icon alignment and prevent shifting */
+.material-icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+/* Prevent flash of unstyled content */
+.card,
+.btn,
+.form-control {
+    opacity: 1;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Custom scrollbar - simplified to prevent jumping */
+::-webkit-scrollbar {
+    width: 8px;
+    background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a370f7;
+}
+
+/* For Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--surface);
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(187, 134, 252, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Bootstrap override fixes */
+.container, .container-fluid {
+    /* Prevent container jumping */
+    transition: none !important;
+}
+
+.row {
+    /* Prevent row shifting */
+    transition: none !important;
+}
+
+/* Fix Bootstrap button conflicts */
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: 0 0 0 0.2rem rgba(187, 134, 252, 0.25) !important;
+}
+
+/* Fix Bootstrap card conflicts */
+.card {
+    /* Override Bootstrap transitions that might cause jumping */
+    transition: box-shadow 0.2s ease !important;
+}
+
+/* Fix Bootstrap navbar conflicts */
+.navbar-nav .nav-link {
+    /* Prevent navbar jumping */
+    transition: color 0.2s ease, background-color 0.2s ease !important;
+}
+
+/* Fix Bootstrap form conflicts */
+.form-control:focus {
+    /* Override Bootstrap focus styles that might cause jumping */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Prevent accordion-like behavior in cards */
+.card-body {
+    transition: none !important;
+}
+
+/* Stabilize alerts */
+.alert {
+    /* Prevent alert jumping */
+    margin-bottom: 1rem !important;
+    position: relative !important;
+}
+
+/* Fix input group conflicts */
+.input-group > .form-control {
+    position: relative !important;
+    flex: 1 1 auto !important;
+}
+
+/* Ensure consistent spacing */
+.mb-3, .my-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mt-3, .my-3 {
+    margin-top: 1rem !important;
+}

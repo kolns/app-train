@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="hero-section text-center">
+            <div class="container">
+                <i class="material-icons" style="font-size: 4rem; margin-bottom: 1rem;">web</i>
+                <h1 class="display-4">Welcome to Flask App</h1>
+                <p class="lead">A modern Flask application built with the application factory pattern and Material Dark theme.</p>
+                {% if not current_user.is_authenticated %}
+                <a class="btn btn-light btn-lg" href="{{ url_for('auth.register') }}" role="button">
+                    <i class="material-icons me-2">person_add</i>
+                    Get Started
+                </a>
+                {% else %}
+                <a class="btn btn-light btn-lg" href="{{ url_for('main.dashboard') }}" role="button">
+                    <i class="material-icons me-2">dashboard</i>
+                    Go to Dashboard
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card elevation-2">
+            <div class="card-header d-flex align-items-center">
+                <i class="material-icons me-2">star</i>
+                <h5 class="mb-0">Features</h5>
+            </div>
+            <div class="card-body">
+                <ul class="feature-list">
+                    <li><i class="material-icons me-2" style="font-size: 1rem;">security</i>User Authentication</li>
+                    <li><i class="material-icons me-2" style="font-size: 1rem;">storage</i>Database Integration</li>
+                    <li><i class="material-icons me-2" style="font-size: 1rem;">palette</i>Material Dark Theme</li>
+                    <li><i class="material-icons me-2" style="font-size: 1rem;">architecture</i>Application Factory Pattern</li>
+                    <li><i class="material-icons me-2" style="font-size: 1rem;">account_tree</i>Blueprint Architecture</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <div class="card elevation-1">
+            <div class="card-header d-flex align-items-center">
+                <i class="material-icons me-2">info</i>
+                <h2 class="mb-0">About This Application</h2>
+            </div>
+            <div class="card-body">
+                <p class="lead">This Flask application demonstrates modern web development best practices with a beautiful Material Dark theme.</p>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="material-icons me-2">build</i>Technical Features</h5>
+                        <ul>
+                            <li>Application factory pattern for better modularity</li>
+                            <li>Blueprint-based organization for scalable routing</li>
+                            <li>Database models with SQLAlchemy</li>
+                            <li>User authentication with Flask-Login</li>
+                            <li>Form handling with Flask-WTF</li>
+                            <li>Configuration management for different environments</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="material-icons me-2">design_services</i>Design Features</h5>
+                        <ul>
+                            <li>Material Design 3 principles</li>
+                            <li>Dark theme with proper contrast</li>
+                            <li>Material Icons integration</li>
+                            <li>Responsive layout with Bootstrap</li>
+                            <li>Smooth animations and transitions</li>
+                            <li>Elevation and shadow system</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
