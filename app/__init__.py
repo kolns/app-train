@@ -10,13 +10,17 @@ migrate = Migrate()
 login_manager = LoginManager()
 
 
-def create_app(config_name='development'):
+def create_app(config_name='development', test_config=None):
     """Create and configure Flask application."""
     app = Flask(__name__)
     
     # Load configuration
-    from app.config import config
-    app.config.from_object(config[config_name])
+    if test_config is None:
+        from app.config import config
+        app.config.from_object(config[config_name])
+    else:
+        # Load test configuration
+        app.config.from_mapping(test_config)
     
     # Initialize extensions with app
     db.init_app(app)
